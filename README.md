@@ -3,7 +3,6 @@
 > Easy way to run shell commands, batch files or executable files in grunt.
 
 
-
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
 
