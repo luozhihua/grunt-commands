@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                 arg: []
             },
             test2: {
-                cmd: 'mkdir new-dir-name'
+                cmd: 'mkdir new_dir_name'
             }
         },
 
