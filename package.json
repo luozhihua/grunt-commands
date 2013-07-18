@@ -1,0 +1,12 @@
+{
+  "name": "grunt-contrib-commands",
+  "version": "0.1.0",
+  "author": "Colin Luo <mail@luozhihua.com>",
+  "description": "Easy way to run shell commands, batch files or executable files in grunt.",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "*"
+  }
+}
