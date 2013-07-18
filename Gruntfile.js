@@ -27,9 +27,7 @@ module.exports = function (grunt) {
                 globals: {
                     jQuery: true
                 }
-            },
-            beforeconcat: ['<%= dirs.src_js%>/tbc.Panel.js'],
-            afterconcat: ['<%= dirs.temp_js%>/<%= pkg.name %>.js']
+            }
         }
     });
     

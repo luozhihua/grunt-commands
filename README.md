@@ -1,4 +1,4 @@
-# grunt-contrib-commands [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-commands.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-commands)
+# grunt-contrib-commands [![Build Status](https://secure.travis-ci.org/luozhihua/grunt-contrib-commands.png?branch=master)](http://travis-ci.org/luozhihua/grunt-contrib-commands)
 
 > Easy way to run shell commands, batch files or executable files in grunt.
 
