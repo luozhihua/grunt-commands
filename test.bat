@@ -1,1 +1,0 @@
-mkdir __tmp__newDirByBAT

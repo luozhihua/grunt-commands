@@ -16,32 +16,91 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask(taskName, description, function() {
 
-        var exec,
+        var process = require('child_process'),
             task    = this.data,
             cmd     = task.cmd,
             args    = task.args instanceof Array ? task.args : [],
-            opts = this.options({
+            opts    = this.options({
                 force: true
             });
+
+        function run(file, args) {
+            if (typeof file === 'string') {
+                if (file.match(/\.sh$/)) {
+                    shell.apply(this, arguments);
+                } else if (file.match(/\.bat$/)) {
+                    bat.apply(this, arguments);
+                } else {
+                    grunt.log.writeln('Do not support this file type:' + file);
+                }
+            }
+        }
+
+        /**
+         * run batch file
+         * @since 0.1.4
+         * @platform Window
+         * @
+         * @return {[type]} [description]
+         */
+        function bat(file, args, options) {
+            var runner = process.spawn('call '+file, args);
+            bind(runner);
+        }
+
+        /**
+         * run batch file
+         * @function shell
+         * @since 0.1.4
+         * @platform Window
+         * @
+         * @return {[type]} [description]
+         */
+        function shell(file, args, options) {
+            var runner = process.spawn('sh '+file, args);
+            bind(runner);
+        }
+
+        /**
+         * bind events to child_process
+         * @function
+         * @param  {child_process} runner child_process
+         */
+        function bind(runner) {
+
+            // 捕获标准输出并将其打印到控制台
+            runner.stdout.on('data', function (data) {
+                grunt.log.writeln('标准输出：\n' + data);
+            });
+
+            // 捕获标准错误输出并将其打印到控制台
+            runner.stderr.on('data', function (data) {
+                grunt.log.writeln('错误：\n' + data);
+            });
+
+            // 注册子进程关闭事件
+            runner.on('exit', function (code, signal) {
+                grunt.log.writeln('子进程已退出，代码：' + code + signal);
+            });
+        }
 
         try {
             switch (task.type) {
                 case "bat":
                 case "batch":
-                    exec = require('child_process').spawn(cmd, args);
+                case "shell":
+                    run(cmd, args);
                     break;
 
                 //case "cmd": 
                 //case "exe":
                 default:
-                    exec = require('child_process');
                     if (cmd instanceof Array) {
                         cmd.forEach(function(i){
-                            grunt.log.writeln(i);
-                            exec.exec(i);
+                            process.exec(i);
                         });
                     } else {
-                        exec.exec(cmd);
+                        process.exec(cmd);
                     }
                     break;
             }
@@ -54,7 +113,7 @@ module.exports = function(grunt) {
             }
 
         } finally {
-            exec = task = opts = cmd = args = null;
+            task = opts = cmd = args = null;
         }
     });
 };

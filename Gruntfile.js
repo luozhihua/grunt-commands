@@ -15,9 +15,9 @@ module.exports = function (grunt) {
 
         // this task
         command : {
-            run_batch: {
-                type: 'bat',
-                cmd: 'test.bat',
+            run_batchs: {
+                //type: 'cmd',
+                cmd: 'mkdir __tmp__newDirByBAT',
                 arg: []
             },
             run_cmd: {
