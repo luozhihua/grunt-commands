@@ -1,4 +1,8 @@
-Copyright (c) 2013 Colin Luo, contributors
+# LICENSE (MIT)
+
+> Copyright (c) 2013 Colin Luo, contributors
+
+---
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

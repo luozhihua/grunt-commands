@@ -14,6 +14,9 @@ module.exports = function (grunt) {
             },
             test2: {
                 cmd: 'mkdir new_dir_name'
+            },
+            test3: {
+                cmd: 'exec.exe'
             }
         },
 
@@ -31,4 +34,9 @@ module.exports = function (grunt) {
         }
     });
     
+    // Actually load this plugin's task(s).
+    grunt.loadTasks('tasks');
+
+    // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-commands');
 };

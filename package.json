@@ -27,14 +27,13 @@
   "devDependencies": {
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-contrib-internal": "~0.4.4",
     "grunt": "~0.4.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin, batch, commands"
   ],
   "contributors": [
     "Colin Luo (http://www.luozhihua.com/)"
@@ -44,5 +43,5 @@
   "directories": {
     "doc": "docs"
   },
-  "license": "BSD"
+  "license": "MIT"
 }
