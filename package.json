@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-commands",
   "description": "Easy way to run shell commands, batch files or executable files in grunt.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/luozhihua/grunt-contrib-commands",
   "author": "Colin Luo (http://www.luozhihua.com/)",
   "repository": {
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-clean": "*",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt": "~0.4.0"
   },

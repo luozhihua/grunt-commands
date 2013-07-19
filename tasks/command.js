@@ -34,7 +34,15 @@ module.exports = function(grunt) {
                 //case "cmd": 
                 //case "exe":
                 default:
-                    exec = require('child_process').exec(cmd);
+                    exec = require('child_process');
+                    if (cmd instanceof Array) {
+                        cmd.forEach(function(i){
+                            grunt.log.writeln(i);
+                            exec.exec(i);
+                        });
+                    } else {
+                        exec.exec(cmd);
+                    }
                     break;
             }
         } catch(e) {

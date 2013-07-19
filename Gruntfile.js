@@ -6,18 +6,28 @@ module.exports = function (grunt) {
  
         pkg: grunt.file.readJSON('package.json'),
         
+        // clean
+        clean: {
+            dir: {
+                src:['__tmp__*'],
+            }
+        },
+
+        // this task
         command : {
-            test1: {
+            run_batch: {
                 type: 'bat',
                 cmd: 'test.bat',
                 arg: []
             },
-            test2: {
-                cmd: 'mkdir new_dir_name'
-            },
-            test3: {
-                cmd: 'exec.exe'
+            run_cmd: {
+                cmd: ['mkdir __tmp__newDirByCMD']
             }
+        },
+
+        // Unit tests.
+        nodeunit: {
+          tests: ['test/*_test.js'],
         },
 
         // JS语法校验
@@ -37,6 +47,12 @@ module.exports = function (grunt) {
     // Actually load this plugin's task(s).
     grunt.loadTasks('tasks');
 
-    // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-commands');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-nodeunit');
+
+    // Rigister default task;
+    grunt.registerTask("test", ['clean', 'command', 'nodeunit', 'clean']);
+
+    // Rigister default task;
+    grunt.registerTask("default", ['test']);
 };
