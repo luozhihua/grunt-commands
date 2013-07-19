@@ -55,7 +55,7 @@ This overrides `grunt.file.delete` from blocking deletion of folders outside cur
 
 ## Release History
 
- * 2013-07-19???v0.1.0???Refactored from grunt-contrib into individual repo.
+ * 2013-07-19 v0.1.0 Refactored from grunt-contrib into individual repo.
 
 ---
 
