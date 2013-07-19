@@ -1,24 +1,28 @@
-/*
- * grunt-contrib-clean
- * http://gruntjs.com/
+/**
+ * @module grunt-contrib-commands
+ * @author Colin Luo - <mail@luozhihua.com>
+ * @see [url=https://github.com/luozhihua/grunt-contrib-commands]
  *
- * Copyright (c) 2012 Tim Branyen, contributors
- * Licensed under the MIT license.
+ * @copyright Copyright (c) 2013 Colin Luo, contributors
+ * @license https://github.com/luozhihua/grunt-contrib-commands/LECENSE Licensed under the MIT license.
  */
 
 module.exports = function(grunt) {
 
     'use strict';
 
-    grunt.registerMultiTask('command', 'Easy way to run shell commands, batch files or executable files in grunt.', function() {
-        // Merge task-specific and/or target-specific options with these defaults.
+    var taskName = 'command',
+        description = 'Easy way to run shell commands, batch files or executable files in grunt.';
+
+    grunt.registerMultiTask(taskName, description, function() {
+
         var exec,
-            options = this.options({
+            task    = this.data,
+            cmd     = task.cmd,
+            args    = task.args instanceof Array ? task.args : [],
+            opts = this.options({
                 force: true
-            }),
-            task = this.data,
-            cmd  = task.cmd,
-            args = task.args instanceof Array ? task.args : [];
+            });
             
         try {
             switch (task.type) {
@@ -28,20 +32,21 @@ module.exports = function(grunt) {
                     break;
 
                 //case "cmd": 
+                //case "exe":
                 default:
                     exec = require('child_process').exec(cmd);
                     break;
             }
         } catch(e) {
 
-            if (options.force!==true) {
+            if (opts.force!==true) {
                 grunt.log.writeln(e.message);
             } else {
                 grunt.log.error(e.message);
             }
             
         } finally {
-            exec = task = options = cmd = args = null;
+            exec = task = opts = cmd = args = null;
         }
     });
 
