@@ -3,7 +3,7 @@
 var grunt = require('grunt');
 
 exports.command = {
-  run_batch: function(test) {
+  run_batchs: function(test) {
     test.expect(1);
 
     var expected = grunt.file.exists('__tmp__newDirByBAT');
