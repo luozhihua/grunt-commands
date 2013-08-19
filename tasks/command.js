@@ -43,9 +43,19 @@ module.exports = function(grunt) {
          * @
          * @return {[type]} [description]
          */
-        function bat(file, args, options) {
-            var runner = process.spawn('call '+file, args);
-            bind(runner);
+        function bat(batFile, args, options) {
+          grunt.log.writeln('In bat: '+ batFile);
+
+          // var runner = process.spawn('call '+batFile, args);
+          // bind(runner);
+
+          process.exec(batFile, function(error, stdout, stderr){ 
+            if ( !error ) {
+              console.log(stdout);
+            } else {
+              console.log(error);
+            }
+          });
         }
 
         /**
@@ -56,9 +66,19 @@ module.exports = function(grunt) {
          * @
          * @return {[type]} [description]
          */
-        function shell(file, args, options) {
-            var runner = process.spawn('sh '+file, args);
-            bind(runner);
+        function shell(shellFile, args, options) {
+          grunt.log.writeln('In shell: '+ shellFile);
+
+          // var runner = process.spawn('sh '+shellFile, args);
+          // bind(runner);
+          
+          process.exec(shellFile, function(error, stdout, stderr){ 
+            if ( !error ) {
+              console.log(stdout);
+            } else {
+              console.log(error);
+            }
+          });          
         }
 
         /**

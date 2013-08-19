@@ -3,9 +3,9 @@ module.exports = function (grunt) {
     "use strict";
 
     grunt.initConfig({
- 
+
         pkg: grunt.file.readJSON('package.json'),
-        
+
         // clean
         clean: {
             dir: {
@@ -23,13 +23,8 @@ module.exports = function (grunt) {
                 type : 'bat',
                 cmd  : 'test.bat'
             },
-            run_batchs: {
-                //type: 'cmd',
-                cmd: 'mkdir __tmp__newDirByBAT',
-                arg: []
-            },
             run_cmd: {
-                cmd: ['mkdir __tmp__newDirByCMD']
+                cmd: ['mkdir __tmp__cmd']
             }
         },
 
@@ -51,7 +46,7 @@ module.exports = function (grunt) {
             }
         }
     });
-    
+
     // Actually load this plugin's task(s).
     grunt.loadTasks('tasks');
 
@@ -59,7 +54,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     // Rigister default task;
-    grunt.registerTask("test", ['clean', 'command', 'nodeunit', 'clean']);
+    grunt.registerTask("test", ['clean', 'command', 'nodeunit']);
 
     // Rigister default task;
     grunt.registerTask("default", ['test']);
