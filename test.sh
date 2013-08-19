@@ -1,1 +1,1 @@
-mkdir __tmp__newDirByShell
+mkdir __tmp__shell
