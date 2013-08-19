@@ -31,7 +31,6 @@ exports.command = {
       test.equal(expected, true, 'The shell file is not run success.');
 
       test.done();
-    }, 1000);
-
+    }, 5000);
   }
 };
