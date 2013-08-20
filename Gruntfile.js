@@ -2,6 +2,9 @@ module.exports = function (grunt) {
 
     "use strict";
 
+    var os = require('os'),
+        osType = os.type();
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -17,14 +20,14 @@ module.exports = function (grunt) {
         command : {
             run_shell: {
                 type : 'shell',
-                cmd  : './test.sh'
+                cmd  : 'test.sh'
             },
             run_bat: {
                 type : 'bat',
-                cmd  : './test.bat'
+                cmd  : 'test.bat'
             },
             run_cmd: {
-                cmd: ['mkdir __tmp__cmd']
+                cmd: ['mkdir __tmp__cmd', 'mkdir __tmp__' + osType]
             }
         },
 

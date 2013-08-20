@@ -12,8 +12,8 @@ module.exports = function(grunt) {
     'use strict';
 
     var os = require('os');
-    var taskName = 'command',
-        description = 'Easy way to run shell commands, batch files or executable files in grunt.';
+    var taskName = 'command';
+    var description = 'Easy way to run shell commands, batch files or executable files in grunt.';
 
     grunt.registerMultiTask(taskName, description, function() {
 
