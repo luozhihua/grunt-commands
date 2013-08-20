@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 
     'use strict';
 
+    var os = require('os');
     var taskName = 'command',
         description = 'Easy way to run shell commands, batch files or executable files in grunt.';
 
@@ -44,12 +45,12 @@ module.exports = function(grunt) {
          * @return {[type]} [description]
          */
         function bat(batFile, args, options) {
-          grunt.log.writeln('In bat: '+ batFile);
+          grunt.log.writeln('os type: '+ os.type());
 
           // var runner = process.spawn('call '+batFile, args);
           // bind(runner);
 
-          process.exec(batFile, function(error, stdout, stderr){ 
+          process.exec(batFile, function(error, stdout, stderr){
             if ( !error ) {
               console.log(stdout);
             } else {
@@ -67,18 +68,18 @@ module.exports = function(grunt) {
          * @return {[type]} [description]
          */
         function shell(shellFile, args, options) {
-          grunt.log.writeln('In shell: '+ shellFile);
+          grunt.log.writeln('os type: '+ os.type());
 
           // var runner = process.spawn('sh '+shellFile, args);
           // bind(runner);
-          
-          process.exec(shellFile, function(error, stdout, stderr){ 
+
+          process.exec(shellFile, function(error, stdout, stderr){
             if ( !error ) {
               console.log(stdout);
             } else {
               console.log(error);
             }
-          });          
+          });
         }
 
         /**
@@ -112,7 +113,7 @@ module.exports = function(grunt) {
                     run(cmd, args);
                     break;
 
-                //case "cmd": 
+                //case "cmd":
                 //case "exe":
                 default:
                     if (cmd instanceof Array) {
