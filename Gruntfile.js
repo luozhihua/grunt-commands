@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         command : {
             run_shell: {
                 type : 'shell',
-                cmd  : 'test.sh'
+                cmd  : './test.sh'
             },
             run_bat: {
                 type : 'bat',

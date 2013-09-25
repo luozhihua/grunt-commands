@@ -29,7 +29,7 @@ Task targets, options may be specified according to the grunt [Configuring tasks
 ### Options
 
 #### force
-Type: `Boolean`  
+Type: `Boolean`
 Default: true
 
 This overrides `grunt.file.delete` from blocking deletion of folders outside current working dir (CWD). Use with caution.
@@ -37,18 +37,18 @@ This overrides `grunt.file.delete` from blocking deletion of folders outside cur
 ### Usage Examples
 
 ```js
+    // this task
     command : {
-        
-        // run a batch file;
-        bat_1: {
-            type: 'bat',
-            cmd: 'test.bat',
-            arg: []
+        run_shell: {
+            type : 'shell',
+            cmd  : './test.sh'
         },
-
-        // execute command
-        cmd_1: {
-            cmd: 'mkdir new-dir-name'
+        run_bat: {
+            type : 'bat',
+            cmd  : 'test.bat'
+        },
+        run_cmd: {
+            cmd: ['mkdir __tmp__cmd', 'mkdir __tmp__' + osType]
         }
     },
 ```
