@@ -34,7 +34,7 @@
     "grunt": "~0.4.0"
   },
   "keywords": [
-    "gruntplugin, batch, commands"
+    "gruntplugin", "batch", "commands"
   ],
   "contributors": [
     "Colin Luo (http://www.luozhihua.com/)"
