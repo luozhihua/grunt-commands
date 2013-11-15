@@ -48,7 +48,7 @@ This overrides `grunt.file.delete` from blocking deletion of folders outside cur
             cmd  : 'test.bat'
         },
         run_cmd: {
-            cmd: ['mkdir __tmp__cmd', 'mkdir __tmp__' + osType]
+            cmd: ['mkdir __tmp__cmd', 'mkdir __tmp__']
         }
     },
 ```
