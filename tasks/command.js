@@ -23,7 +23,8 @@ module.exports = function(grunt) {
             args    = task.args instanceof Array ? task.args : [],
             opts    = this.options({
                 force: true
-            });
+            }),
+            done    = this.async();
 
         function run(file, args) {
             if (typeof file === 'string') {
@@ -56,7 +57,8 @@ module.exports = function(grunt) {
             } else {
               console.log(error);
             }
-          });
+          })
+          .on('exit', function (code){ done(!code); });
         }
 
         /**
@@ -79,7 +81,8 @@ module.exports = function(grunt) {
             } else {
               console.log(error);
             }
-          });
+          })
+          .on('exit', function (code){ done(!code); });
         }
 
         /**
@@ -118,10 +121,12 @@ module.exports = function(grunt) {
                 default:
                     if (cmd instanceof Array) {
                         cmd.forEach(function(i){
-                            process.exec(i);
+                            process.exec(i)
+                            .on('exit', function (code){ done(!code); });;
                         });
                     } else {
-                        process.exec(cmd);
+                        process.exec(cmd)
+                        .on('exit', function (code){ done(!code); });;
                     }
                     break;
             }
