@@ -3,6 +3,9 @@ node_js:
   - "0.4"
   - "0.8"
   - "0.10"
+  - "0.10.29"
+  - "0.11.14"
+  - "0.12"
 before_script:
   - npm install -g grunt-cli
   - chmod 777 test/*
