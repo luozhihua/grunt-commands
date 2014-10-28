@@ -1,20 +1,20 @@
 {
-  "name": "grunt-contrib-commands",
+  "name": "grunt-commands",
   "description": "Easy way to run shell commands, batch files or executable files in grunt.",
-  "version": "0.1.6",
-  "homepage": "https://github.com/luozhihua/grunt-contrib-commands",
+  "version": "0.1.7",
+  "homepage": "https://github.com/luozhihua/grunt-commands",
   "author": "Colin Luo (http://www.luozhihua.com/)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/luozhihua/grunt-contrib-commands.git"
+    "url": "git://github.com/luozhihua/grunt-commands.git"
   },
   "bugs": {
-    "url": "https://github.com/luozhihua/grunt-contrib-commands/issues"
+    "url": "https://github.com/luozhihua/grunt-commands/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/luozhihua/grunt-contrib-commands/blob/master/LICENSE-MIT"
+      "url": "https://github.com/luozhihua/grunt-commands/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -25,6 +25,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "async": "*",
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-clean": "*",
     "grunt-contrib-nodeunit": "~0.1.2",
@@ -40,7 +41,7 @@
     "Colin Luo (http://www.luozhihua.com/)"
   ],
   "readmeFilename": "README.md",
-  "_from": "grunt-contrib-commands@",
+  "_from": "grunt-commands@",
   "directories": {
     "doc": "docs",
     "test": "test"
