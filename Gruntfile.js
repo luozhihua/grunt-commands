@@ -12,22 +12,72 @@ module.exports = function (grunt) {
         // clean
         clean: {
             dir: {
-                src:['__tmp__*'],
+                src:['./tmp'],
             }
         },
 
         // this task
-        command : {
-            run_shell: {
-                type : 'shell',
-                cmd  : './test.sh'
+        commands : {
+
+            // Run tests via nodejs
+            // auto detected extend name of the file
+            tests: {
+                cmd: './test/tests.js'
             },
-            run_bat: {
-                type : 'bat',
-                cmd  : 'test.bat'
+
+            test2: {
+                cmd: './test/include\\ space.js'
             },
-            run_cmd: {
-                cmd: ['mkdir __tmp__cmd', 'mkdir __tmp__' + osType]
+
+            // Deploy project via ShellScript
+            deploy: {
+                cmd  : './test/deploy.sh'
+                //force: true
+            },
+
+            // Deploy project via ShellScript
+            deploy2: {
+                cmd  : './test/include\\ space.sh',
+                force: true
+            },
+
+            // Package to zip file via Windows batch file
+            zip: {
+                cmd  : './test/zip.bat'
+            },
+
+            // Package to zip file via Windows batch file
+            nodejsLogFile: {
+                cmd  : 'echo "Time `date`" > ./tmp/log.nodejs.js'
+            },
+
+            // Package to zip file via Windows batch file
+            shellLogFile: {
+                cmd  : 'echo "Time `date`" > ./tmp/log.shell.sh'
+            },
+
+            // Package to zip file via Windows batch file
+            batchLogFile: {
+                cmd  : 'echo "Time `date`" > ./tmp/log.batch.bat'
+            },
+
+            // Some other commands
+            someOthorCommands: {
+                cmd: [
+                    // commands one
+                    {
+                        //cmd: 'mkdir tmp && cd tmp',
+                        cmd: 'cd tmp && echo "Time `date`" > cmd.log',
+                        //type: 'shell',
+
+                        // if dir `tmp` exists will throw an error,
+                        // so set `force: true` to igone the error.
+                        force: true
+                    },
+
+                    // commands two
+                    'cd tmp && echo "Time `date`" > cmd2.log'
+                ]
             }
         },
 
@@ -36,7 +86,7 @@ module.exports = function (grunt) {
           tests: ['test/*_test.js'],
         },
 
-        // JS语法校验
+        // JSHint
         jshint: {
             options: {
                 curly: true,
@@ -57,7 +107,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     // Rigister default task;
-    grunt.registerTask("test", ['clean', 'command', 'nodeunit']);
+    grunt.registerTask("test", ['clean', 'commands', 'nodeunit']);
 
     // Rigister default task;
     grunt.registerTask("default", ['test']);
