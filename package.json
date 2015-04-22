@@ -1,7 +1,7 @@
 {
   "name": "grunt-commands",
   "description": "Easy way to run shell commands, batch files or executable files in grunt.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "https://github.com/luozhihua/grunt-commands",
   "author": "Colin Luo (http://www.luozhihua.com/)",
   "repository": {
