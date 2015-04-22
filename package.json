@@ -24,8 +24,10 @@
   "scripts": {
     "test": "grunt test"
   },
-  "devDependencies": {
+  "dependencies": {
     "async": "*",
+  },
+  "devDependencies": {
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-clean": "*",
     "grunt-contrib-nodeunit": "~0.1.2",
